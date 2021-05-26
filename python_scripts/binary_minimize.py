@@ -37,15 +37,13 @@ def main():
         params_files = []
         for ligand_name in ligand_names:
             pdb_file = open(pdb, "r")
-            print(ligand_name)
             ligand_file_name = pdb.strip(".pdb") + "_lig_" + ligand_name
             # extract the ligand into a new pdb file
             ligand_pdb_name = ligand_file_name + ".pdb"
             ligand_pdb_file = open(ligand_pdb_name, "w")
             for line in pdb_file:
-                print(ligand_name)
                 if line.startswith("HETATM") and ligand_name in line:
-                    # print(ligand_name, line)
+                    print(ligand_name, line)
                     ligand_pdb_file.write(line)
 
             ligand_pdb_file.close()
